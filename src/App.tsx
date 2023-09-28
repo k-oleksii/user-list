@@ -7,7 +7,7 @@ export const App: FC = () => {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route path='' element={<HomePage />} />
+        <Route path='/' element={<HomePage />} />
       </Route>
     </Routes>
   );
