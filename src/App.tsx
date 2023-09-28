@@ -1,14 +1,14 @@
-import React from 'react';
+import { Layout } from '@components/Layout/Index';
+import { FC } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages/Home';
 
-export const App = () => {
+export const App: FC = () => {
   return (
-    <div>
-      <h1>Technologies to be used:</h1>
-      <ul>
-        <li>ReactJS (pure)</li>
-        <li>Must be compatible with NodeJS 14 version</li>
-        <li>Assembling the project using WebPack</li>
-      </ul>
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route path='' element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };
