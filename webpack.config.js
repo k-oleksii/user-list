@@ -46,6 +46,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
@@ -72,6 +73,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
+    compress: true,
+    historyApiFallback: true,
     port: 3000,
     open: true,
   },

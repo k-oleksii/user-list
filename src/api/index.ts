@@ -8,4 +8,10 @@ export const api = {
 
     return data?.data;
   },
+
+  async getPosts(hash: string) {
+    const data = await axios.get(`${url}/users/${hash}/posts`);
+
+    return data?.data;
+  },
 };
