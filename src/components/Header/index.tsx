@@ -1,7 +1,7 @@
 import { Context } from '@src/lib/usersSearchContext';
+import { StyledLogo } from '@src/styles/Components/StyledLogo';
 import { ChangeEvent, FC, useContext } from 'react';
 import { Container, Form, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 export const Header: FC = () => {
   const context = useContext(Context);
@@ -19,7 +19,10 @@ export const Header: FC = () => {
   return (
     <Navbar bg='dark' variant='dark' expand='lg'>
       <Container>
-        <Link to='/'>User list</Link>
+        <StyledLogo to='/'>
+          User list
+          <span>ProxySeller</span>
+        </StyledLogo>
         <Form className='d-flex'>
           <Form.Control
             type='search'

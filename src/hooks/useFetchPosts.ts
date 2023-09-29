@@ -1,8 +1,9 @@
 import { api } from '@src/api';
+import { IPost } from '@src/types';
 import { useEffect, useState } from 'react';
 
 export const useFetchPosts = (hash: string) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
