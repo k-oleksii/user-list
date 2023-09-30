@@ -14,4 +14,22 @@ export const api = {
 
     return data?.data;
   },
+
+  async getPostById(hash: string) {
+    const data = await axios.get(`${url}/posts/${hash}`);
+
+    return data?.data;
+  },
+
+  async getAlbums(hash: string) {
+    const data = await axios.get(`${url}/users/${hash}/albums`);
+
+    return data?.data;
+  },
+
+  async getAlbumById(hash: string) {
+    const data = await axios.get(`${url}/albums/${hash}`);
+
+    return data?.data;
+  },
 };

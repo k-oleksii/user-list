@@ -1,17 +1,17 @@
-import { useFetchPosts } from '@src/hooks/useFetchPosts';
+import { useFetchAlbums } from '@src/hooks/useFetchAlbums';
 import { StyledLoading } from '@src/styles/ui/StyledLoading';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { PostCard } from './PostCard';
+import { AlbumCard } from './AlbumCard';
 
-export const Posts = () => {
+export const Albums = () => {
   const { userId } = useParams();
 
-  const { loading, posts } = useFetchPosts(userId as string);
+  const { loading, albums } = useFetchAlbums(userId as string);
 
   return (
     <>
-      <h1 className='mb-4 fs-3'>User Posts</h1>
+      <h1 className='mb-4 fs-3'>User Albums</h1>
       <Row className='row-gap-4'>
         {loading ? (
           <Col>
@@ -24,9 +24,9 @@ export const Posts = () => {
             </StyledLoading>
           </Col>
         ) : (
-          posts?.map(item => (
+          albums?.map(item => (
             <Col xs={12} md={4} key={item.id}>
-              <PostCard {...item} />
+              <AlbumCard {...item} />
             </Col>
           ))
         )}

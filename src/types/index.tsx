@@ -28,3 +28,8 @@ export interface IPost {
   title: string;
   body: string;
 }
+export interface IAlbum {
+  userId: number;
+  id: number;
+  title: string;
+}
