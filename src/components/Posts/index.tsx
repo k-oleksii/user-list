@@ -1,10 +1,18 @@
-import { useFetchPosts } from '@src/hooks/useFetchPosts';
-import { StyledLoading } from '@src/styles/ui/StyledLoading';
+// Core
+import { FC } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+
+// Components
 import { PostCard } from './PostCard';
 
-export const Posts = () => {
+// Hooks
+import { useFetchPosts } from '@src/hooks/useFetchPosts';
+
+// Styles
+import { StyledLoading } from '@src/styles/ui/StyledLoading';
+
+export const Posts: FC = () => {
   const { userId } = useParams();
 
   const { loading, posts } = useFetchPosts(userId as string);

@@ -1,3 +1,4 @@
+// Core
 import {
   Dispatch,
   ReactNode,
@@ -6,19 +7,17 @@ import {
   useState,
 } from 'react';
 
-type UserSearchContextType = {
+interface IUserSearchContext {
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
-};
+}
 
-export const Context = createContext<UserSearchContextType | undefined>(
-  undefined
-);
+export const Context = createContext<IUserSearchContext | undefined>(undefined);
 
 export const UserSearchProvider = ({ children }: { children: ReactNode }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const contextValue: UserSearchContextType = {
+  const contextValue: IUserSearchContext = {
     searchQuery,
     setSearchQuery,
   };

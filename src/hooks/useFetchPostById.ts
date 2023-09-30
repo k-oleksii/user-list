@@ -1,19 +1,24 @@
-import { api } from '@src/api';
-import { IPost } from '@src/types';
+// Core
 import { useEffect, useState } from 'react';
 
-export const useFetchPostById = (hash: string) => {
+// Api
+import { api } from '@src/api';
+
+// Types
+import { IPost } from '@src/types';
+
+export const useFetchPostById = (id: string) => {
   const [post, setPost] = useState<IPost>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await api.getPostById(hash);
+        const response = await api.getPostById(id);
 
         setPost(response || {});
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error('Error fetching post:', error);
       } finally {
         setLoading(false);
       }

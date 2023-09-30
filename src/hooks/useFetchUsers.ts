@@ -1,6 +1,11 @@
-import { api } from '@src/api';
-import { IUser } from '@src/types';
+// Core
 import { useEffect, useState } from 'react';
+
+// Api
+import { api } from '@src/api';
+
+// Types
+import { IUser } from '@src/types';
 
 export const useFetchUsers = () => {
   const [users, setUsers] = useState<IUser[]>([]);

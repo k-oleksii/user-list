@@ -1,11 +1,20 @@
-import { Card } from '@components/Card';
-import { useFetchUsers } from '@src/hooks/useFetchUsers';
-import { Context } from '@src/lib/usersSearchContext';
-import { StyledLoading } from '@src/styles/ui/StyledLoading';
-import { useContext, useState } from 'react';
+// Core
+import { FC, memo, useCallback, useContext, useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 
-export const Users = () => {
+// Components
+import { Card } from '@components/Card';
+
+// Hooks
+import { useFetchUsers } from '@src/hooks/useFetchUsers';
+
+// Context
+import { Context } from '@src/lib/usersSearchContext';
+
+// Styles
+import { StyledLoading } from '@src/styles/ui/StyledLoading';
+
+export const Users: FC = memo(() => {
   const [sortUser, setSortUser] = useState(true);
   const { loading, users } = useFetchUsers();
   const context = useContext(Context);
@@ -27,9 +36,9 @@ export const Users = () => {
     }
   });
 
-  const sortedHandler = () => {
-    setSortUser(!sortUser);
-  };
+  const sortedHandler = useCallback(() => {
+    setSortUser(prevSortUser => !prevSortUser);
+  }, []);
 
   return (
     <>
@@ -60,4 +69,4 @@ export const Users = () => {
       </Row>
     </>
   );
-};
+});

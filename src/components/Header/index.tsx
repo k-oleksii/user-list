@@ -1,7 +1,12 @@
-import { Context } from '@src/lib/usersSearchContext';
-import { StyledLogo } from '@src/styles/Components/StyledLogo';
+// Core
 import { ChangeEvent, FC, useContext } from 'react';
 import { Container, Form, Navbar } from 'react-bootstrap';
+
+// Context
+import { Context } from '@src/lib/usersSearchContext';
+
+// Styles
+import { StyledLogo } from '@src/styles/Components/StyledLogo';
 
 export const Header: FC = () => {
   const context = useContext(Context);

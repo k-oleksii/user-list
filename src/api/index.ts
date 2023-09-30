@@ -1,3 +1,4 @@
+// Core
 import axios from 'axios';
 
 const url = 'https://jsonplaceholder.typicode.com';
@@ -9,26 +10,26 @@ export const api = {
     return data?.data;
   },
 
-  async getPosts(hash: string) {
-    const data = await axios.get(`${url}/users/${hash}/posts`);
+  async getPosts(id: string) {
+    const data = await axios.get(`${url}/users/${id}/posts`);
 
     return data?.data;
   },
 
-  async getPostById(hash: string) {
-    const data = await axios.get(`${url}/posts/${hash}`);
+  async getPostById(id: string) {
+    const data = await axios.get(`${url}/posts/${id}`);
 
     return data?.data;
   },
 
-  async getAlbums(hash: string) {
-    const data = await axios.get(`${url}/users/${hash}/albums`);
+  async getAlbums(id: string) {
+    const data = await axios.get(`${url}/users/${id}/albums`);
 
     return data?.data;
   },
 
-  async getAlbumById(hash: string) {
-    const data = await axios.get(`${url}/albums/${hash}`);
+  async getAlbumById(id: string) {
+    const data = await axios.get(`${url}/albums/${id}`);
 
     return data?.data;
   },

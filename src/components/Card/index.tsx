@@ -1,12 +1,17 @@
+// Core
+import { FC } from 'react';
+import { Card as CardItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+// Types
+import { IUser } from '@src/types';
+
+// Styles
 import {
   StyledCardItemText,
   StyledCardItemTitle,
   StyledCardLinks,
 } from '@src/styles/Components/StyledCard';
-import { IUser } from '@src/types';
-import { FC } from 'react';
-import { Card as CardItem } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 export const Card: FC<IUser> = props => {
   const { name, username, email, id } = props;
@@ -24,8 +29,8 @@ export const Card: FC<IUser> = props => {
           <span className='fw-medium'>{email}</span>
         </StyledCardItemText>
         <StyledCardLinks>
-          <Link to={`/posts/${props.id}`}>Posts</Link>
-          <Link to={`/albums/${props.id}`}>Albums</Link>
+          <Link to={`/posts/${id}`}>Posts</Link>
+          <Link to={`/albums/${id}`}>Albums</Link>
         </StyledCardLinks>
       </CardItem.Body>
     </CardItem>

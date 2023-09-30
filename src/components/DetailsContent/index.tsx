@@ -1,3 +1,4 @@
+// Core
 import { FC } from 'react';
 
 interface IContent {

@@ -1,10 +1,18 @@
-import { useFetchAlbums } from '@src/hooks/useFetchAlbums';
-import { StyledLoading } from '@src/styles/ui/StyledLoading';
+// Core
+import { FC } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+
+// Hooks
+import { useFetchAlbums } from '@src/hooks/useFetchAlbums';
+
+// Components
 import { AlbumCard } from './AlbumCard';
 
-export const Albums = () => {
+// Styles
+import { StyledLoading } from '@src/styles/ui/StyledLoading';
+
+export const Albums: FC = () => {
   const { userId } = useParams();
 
   const { loading, albums } = useFetchAlbums(userId as string);

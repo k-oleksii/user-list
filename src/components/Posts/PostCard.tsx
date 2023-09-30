@@ -1,29 +1,31 @@
-import {
-  StyledCardItemText,
-  StyledCardItemTitle,
-} from '@src/styles/Components/StyledCard';
-import { IPost } from '@src/types';
+// Core
 import { FC } from 'react';
 import { Card as CardItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+// Types
+import { IPost } from '@src/types';
+
+// Styles
+import {
+  StyledCardInner,
+  StyledCardInnerTitle,
+  StyledCardItemText,
+} from '@src/styles/Components/StyledCard';
+
 export const PostCard: FC<IPost> = props => {
-  const { title, body, id, userId } = props;
+  const { title, body, id } = props;
 
   return (
-    <CardItem className='h-100'>
+    <StyledCardInner className='h-100'>
       <Link to={`/post/${id}`}>
         <CardItem.Body>
-          <StyledCardItemTitle>{title}</StyledCardItemTitle>
+          <StyledCardInnerTitle>{title}</StyledCardInnerTitle>
           <StyledCardItemText className='mb-2 text-dark-emphasis'>
             <span> {body}</span>
           </StyledCardItemText>
-          {/* <StyledCardLinks>
-          <Link to={`/posts/${props.id}`}>Posts</Link>
-          <Link to={`/albums/${props.id}`}>Albums</Link>
-        </StyledCardLinks> */}
         </CardItem.Body>
       </Link>
-    </CardItem>
+    </StyledCardInner>
   );
 };

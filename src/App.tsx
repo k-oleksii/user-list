@@ -1,6 +1,9 @@
-import { Layout } from '@components/Layout/Index';
+// Core
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+// Components
+import { Layout } from '@components/Layout/Index';
 import { AlbumDetailsViewPage } from './pages/AlbumDetailsView';
 import { AlbumsPage } from './pages/Albums';
 import { HomePage } from './pages/Home';

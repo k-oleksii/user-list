@@ -1,19 +1,27 @@
-import { StyledCardItemTitle } from '@src/styles/Components/StyledCard';
-import { IAlbum } from '@src/types';
+// Core
 import { FC } from 'react';
 import { Card as CardItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+// Types
+import { IAlbum } from '@src/types';
+
+// Styles
+import {
+  StyledCardInner,
+  StyledCardInnerTitle,
+} from '@src/styles/Components/StyledCard';
 
 export const AlbumCard: FC<IAlbum> = props => {
   const { title, id } = props;
 
   return (
-    <CardItem className='h-100'>
+    <StyledCardInner className='h-100'>
       <Link to={`/album/${id}`}>
         <CardItem.Body>
-          <StyledCardItemTitle>{title}</StyledCardItemTitle>
+          <StyledCardInnerTitle>{title}</StyledCardInnerTitle>
         </CardItem.Body>
       </Link>
-    </CardItem>
+    </StyledCardInner>
   );
 };
