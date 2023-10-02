@@ -6,6 +6,7 @@ import { Container, Form, Navbar } from 'react-bootstrap';
 import { Context } from '@src/lib/usersSearchContext';
 
 // Styles
+import { debounce } from '@src/helpers/debounce';
 import { StyledLogo } from '@src/styles/Components/StyledLogo';
 
 export const Header: FC = () => {
@@ -15,11 +16,12 @@ export const Header: FC = () => {
     return;
   }
 
-  const { searchQuery, setSearchQuery } = context;
+  const { setSearchQuery } = context;
 
-  const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
+  const handleSearchInputChange = debounce(
+    (e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value),
+    200
+  );
 
   return (
     <Navbar bg='dark' variant='dark' expand='lg'>
@@ -33,7 +35,6 @@ export const Header: FC = () => {
             type='search'
             placeholder='Search'
             aria-label='Search'
-            value={searchQuery}
             onChange={handleSearchInputChange}
           />
         </Form>
